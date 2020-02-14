@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-12T09:10:40.146Z</updated>
+  <updated>2020-02-14T02:12:35.917Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指offer-03.数组中重复的数字</title>
+    <link href="http://yoursite.com/2020/02/14/%E5%89%91%E6%8C%87offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+    <id>http://yoursite.com/2020/02/14/%E5%89%91%E6%8C%87offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</id>
+    <published>2020-02-14T02:05:08.000Z</published>
+    <updated>2020-02-14T02:12:35.917Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="找出数组中重复的数字"><a href="#找出数组中重复的数字" class="headerlink" title="找出数组中重复的数字"></a>找出数组中重复的数字</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p></blockquote><h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>首先判断数组长度是否为0或1，若是，则返回-1，然后将数组排序，然后比较数组中前一个数字是否和后一个数字相等，如果相等，则返回该数字</p><blockquote><p>代码  </p></blockquote><pre><code>class Solution {public:    int findRepeatNumber(vector&lt;int&gt;&amp; nums) {        if(nums.size()&lt;=1){            return -1;        }        sort(nums.begin(),nums.end());        int flag=nums[0];        for(int i=1;i&lt;nums.size();i++){            if(nums[i]==flag){                return nums[i];            }            flag=nums[i];        }        return -1;    }};  </code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;找出数组中重复的数字&quot;&gt;&lt;a href=&quot;#找出数组中重复的数字&quot; class=&quot;headerlink&quot; title=&quot;找出数组中重复的数字&quot;&gt;&lt;/a&gt;找出数组中重复的数字&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;head
+      
+    
+    </summary>
+    
+    
+      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="刷题" scheme="http://yoursite.com/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>某R(配搭黑科技号服务的使用说明)</title>
