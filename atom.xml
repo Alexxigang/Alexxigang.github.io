@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-14T10:30:28.738Z</updated>
+  <updated>2020-02-15T03:52:39.120Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>topic06-07</title>
+    <link href="http://yoursite.com/2020/02/15/topic06/"/>
+    <id>http://yoursite.com/2020/02/15/topic06/</id>
+    <published>2020-02-15T03:36:14.000Z</published>
+    <updated>2020-02-15T03:52:39.120Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="06-从尾到头打印链表"><a href="#06-从尾到头打印链表" class="headerlink" title="06-从尾到头打印链表"></a>06-从尾到头打印链表</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p></blockquote><h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>用一个栈从头到尾遍历链表，依次压入栈中，然后利用栈的先进后出的特点，依次弹出放入res数组中<br><strong>时间复杂度：O(n),空间复杂度：O(n)</strong></p><blockquote><p>代码  </p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; reversePrint(ListNode* head) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; nodes;</span><br><span class="line">        ListNode* node=head;</span><br><span class="line">        <span class="keyword">while</span>(node!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            nodes.push(node-&gt;val);</span><br><span class="line">            node=node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!nodes.empty())&#123;</span><br><span class="line">            res.push_back(nodes.top());</span><br><span class="line">            nodes.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="07-重建二叉树"><a href="#07-重建二叉树" class="headerlink" title="07-重建二叉树"></a>07-重建二叉树</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。</p></blockquote><p>例如，给出</p><pre><code>前序遍历 preorder = [3,9,20,15,7]中序遍历 inorder = [9,3,15,20,7]</code></pre><h3 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h3><p>利用前序遍历，中序遍历的特点，分别建立preLeft,preRight,inLeft,inRight四个数组，分别保存前序数组除去根节点的左子树节点，前序数组的右子树节点，中序数组的左子树节点，中序数组的右子树节点，然后以前序数组第一个数字为根节点的val，递归生成根节点的左子树，右子树  </p><blockquote><p>代码  </p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preorder.size()==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; preLeft,preRight,inLeft,inRight;</span><br><span class="line">        TreeNode* head=<span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">int</span> root=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;inorder.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(inorder[i]==preorder[<span class="number">0</span>])&#123;</span><br><span class="line">                root=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;root;i++)&#123;</span><br><span class="line">            inLeft.push_back(inorder[i]);</span><br><span class="line">            preLeft.push_back(preorder[i+<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=root+<span class="number">1</span>;i&lt;preorder.size();i++)&#123;</span><br><span class="line">            inRight.push_back(inorder[i]);</span><br><span class="line">            preRight.push_back(preorder[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;left=buildTree(preLeft,inLeft);</span><br><span class="line">        head-&gt;right=buildTree(preRight,inRight);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;06-从尾到头打印链表&quot;&gt;&lt;a href=&quot;#06-从尾到头打印链表&quot; class=&quot;headerlink&quot; title=&quot;06-从尾到头打印链表&quot;&gt;&lt;/a&gt;06-从尾到头打印链表&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="刷题" scheme="http://yoursite.com/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2020/02/14/%E5%89%91%E6%8C%87offer-02-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
+    <id>http://yoursite.com/2020/02/14/%E5%89%91%E6%8C%87offer-02-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BE/</id>
+    <published>2020-02-14T10:55:05.681Z</published>
+    <updated>2020-02-14T10:55:05.682Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title: 剑指offer-02<br>date: 2020-02-14 17:33:47<br>tags:</p><ul><li>刷题<br>categories:</li><li>剑指offer</li></ul><hr><h2 id="二维数组的查找"><a href="#二维数组的查找" class="headerlink" title="二维数组的查找"></a>二维数组的查找</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p></blockquote><h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>先判断数组是否为空，然后定义row,col,从第一行最后一个数字开始与target比较，如果比target大，则col减一，若比target小，则row+1，否则相等，返回true   </p><blockquote><p>代码  </p></blockquote><pre><code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.empty()|| matrix[<span class="number">0</span>].size()==<span class="number">0</span>||matrix.size()==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> col=matrix[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">int</span> row=matrix.size();</span><br><span class="line">        <span class="keyword">int</span> i=col<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span>&amp;&amp;j&lt;row)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(target&gt;matrix[j][i])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;matrix[j][i])&#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;title: 剑指offer-02&lt;br&gt;date: 2020-02-14 17:33:47&lt;br&gt;tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;刷题&lt;br&gt;categories:&lt;/li&gt;
+&lt;li&gt;剑指offer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;二维数组
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>02-二维数组的查找</title>
@@ -39,35 +94,6 @@
     
     
       <category term="刷题" scheme="http://yoursite.com/tags/%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2020/02/14/%E5%89%91%E6%8C%87offer-02-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
-    <id>http://yoursite.com/2020/02/14/%E5%89%91%E6%8C%87offer-02-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BE/</id>
-    <published>2020-02-14T09:33:47.305Z</published>
-    <updated>2020-02-14T09:41:28.470Z</updated>
-    
-    <content type="html"><![CDATA[<hr><p>title: 剑指offer-02<br>date: 2020-02-14 17:33:47<br>tags:</p><ul><li>刷题<br>categories:</li><li>剑指offer</li></ul><hr><h2 id="二维数组的查找"><a href="#二维数组的查找" class="headerlink" title="二维数组的查找"></a>二维数组的查找</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p></blockquote><h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>先判断数组是否为空，然后定义row,col,从第一行最后一个数字开始与target比较，如果比target大，则col减一，若比target小，则row+1，否则相等，返回true   </p><blockquote><p>代码  </p></blockquote><pre><code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.empty()|| matrix[<span class="number">0</span>].size()==<span class="number">0</span>||matrix.size()==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> col=matrix[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">int</span> row=matrix.size();</span><br><span class="line">        <span class="keyword">int</span> i=col<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span>&amp;&amp;j&lt;row)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(target&gt;matrix[j][i])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;matrix[j][i])&#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;p&gt;title: 剑指offer-02&lt;br&gt;date: 2020-02-14 17:33:47&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;刷题&lt;br&gt;categories:&lt;/li&gt;
-&lt;li&gt;剑指offer&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;二维数组
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
