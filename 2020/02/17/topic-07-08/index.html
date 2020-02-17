@@ -56,19 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="二维数组的查找题目描述 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。  解法一先判断数组是否为空，然后定义row,col,从第一行最后一个数字开始与target比较，如果比target大，则col减一，若比target小，则row+1，否则相等，返回true">
+  <meta name="description" content="07-菲波那切数列题目描述 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&amp;lt;=39  解法利用传统的递归方法会有重复计算，时间复杂度也会超过限制，在这里利用三个变量进行简单的循环即可时间复杂度：O(n),空间复杂度：O(1)  代码如下：   class Solution { public:     int Fibonacci(int">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="02-二维数组的查找">
-<meta property="og:url" content="http://yoursite.com/2020/02/14/test/index.html">
+<meta property="og:title" content="topic-07-08">
+<meta property="og:url" content="http://yoursite.com/2020/02/17/topic-07-08/index.html">
 <meta property="og:site_name" content="Alexxigang">
-<meta property="og:description" content="二维数组的查找题目描述 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。  解法一先判断数组是否为空，然后定义row,col,从第一行最后一个数字开始与target比较，如果比target大，则col减一，若比target小，则row+1，否则相等，返回true">
+<meta property="og:description" content="07-菲波那切数列题目描述 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&amp;lt;=39  解法利用传统的递归方法会有重复计算，时间复杂度也会超过限制，在这里利用三个变量进行简单的循环即可时间复杂度：O(n),空间复杂度：O(1)  代码如下：   class Solution { public:     int Fibonacci(int">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-14T10:30:28.738Z">
+<meta property="og:updated_time" content="2020-02-17T10:14:02.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="02-二维数组的查找">
-<meta name="twitter:description" content="二维数组的查找题目描述 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。  解法一先判断数组是否为空，然后定义row,col,从第一行最后一个数字开始与target比较，如果比target大，则col减一，若比target小，则row+1，否则相等，返回true">
-  <link rel="canonical" href="http://yoursite.com/2020/02/14/test/">
+<meta name="twitter:title" content="topic-07-08">
+<meta name="twitter:description" content="07-菲波那切数列题目描述 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&amp;lt;=39  解法利用传统的递归方法会有重复计算，时间复杂度也会超过限制，在这里利用三个变量进行简单的循环即可时间复杂度：O(n),空间复杂度：O(1)  代码如下：   class Solution { public:     int Fibonacci(int">
+  <link rel="canonical" href="http://yoursite.com/2020/02/17/topic-07-08/">
 
 
 <script id="page-configurations">
@@ -82,7 +82,7 @@
   };
 </script>
 
-  <title>02-二维数组的查找 | Alexxigang</title>
+  <title>topic-07-08 | Alexxigang</title>
   
 
 
@@ -251,7 +251,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/test/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/17/topic-07-08/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alex">
@@ -263,7 +263,7 @@
       <meta itemprop="name" content="Alexxigang">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">02-二维数组的查找
+        <h1 class="post-title" itemprop="name headline">topic-07-08
 
           
         </h1>
@@ -279,7 +279,7 @@
                 
               
 
-              <time title="创建时间：2020-02-14 17:56:24 / 修改时间：18:30:28" itemprop="dateCreated datePublished" datetime="2020-02-14T17:56:24+08:00">2020-02-14</time>
+              <time title="创建时间：2020-02-17 17:56:11 / 修改时间：18:14:02" itemprop="dateCreated datePublished" datetime="2020-02-17T17:56:11+08:00">2020-02-17</time>
             </span>
           
             
@@ -311,15 +311,57 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="二维数组的查找"><a href="#二维数组的查找" class="headerlink" title="二维数组的查找"></a>二维数组的查找</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+        <h2 id="07-菲波那切数列"><a href="#07-菲波那切数列" class="headerlink" title="07-菲波那切数列"></a>07-菲波那切数列</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。<br>n&lt;=39</p>
 </blockquote>
-<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>先判断数组是否为空，然后定义row,col,从第一行最后一个数字开始与target比较，如果比target大，则col减一，若比target小，则row+1，否则相等，返回true   </p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>利用传统的递归方法会有重复计算，时间复杂度也会超过限制，在这里利用三个变量进行简单的循环即可<br><strong>时间复杂度：O(n),空间复杂度：O(1)</strong></p>
 <blockquote>
-<p>代码  </p>
+<p>代码如下： </p>
 </blockquote>
-<pre><code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.empty()|| matrix[<span class="number">0</span>].size()==<span class="number">0</span>||matrix.size()==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> col=matrix[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">int</span> row=matrix.size();</span><br><span class="line">        <span class="keyword">int</span> i=col<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span>&amp;&amp;j&lt;row)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(target&gt;matrix[j][i])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;matrix[j][i])&#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c++">class Solution {
+public:
+    int Fibonacci(int n) {
+        int res=0;
+        if(n==0||n==1){
+            return n;
+        }
+        int one=0,two=1,three=0;
+        for(int i=2;i&lt;=n;i++){
+            three=one+two;
+            one=two;
+            two=three;
+        }
+        return three;
+    }
+};
 </code></pre>
+<h2 id="08-跳台阶"><a href="#08-跳台阶" class="headerlink" title="08-跳台阶"></a>08-跳台阶</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。  </p>
+</blockquote>
+<h3 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h3><p>思想同上一题：菲波那切数列<br><strong>时间复杂度：O(n),空间复杂度：O(1)</strong></p>
+<blockquote>
+<p>代码如下： </p>
+</blockquote>
+<pre><code class="lang-c++">class Solution {
+public:
+    int jumpFloor(int number) {
+        if(number&lt;=0){
+            return 0;
+        }
+        else if(number &lt;3){
+            return number;
+        }
+        int one=1,two=2,three=0;
+        for(int i=3;i&lt;=number;i++){
+            three=one + two;
+            one=two;
+            two=three;
+        }
+        return three;
+    }
+};
+</code></pre>
+
     </div>
 
     
@@ -344,8 +386,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/02/14/剑指offer-03-数组中重复的数字/" rel="next" title="剑指offer-03.数组中重复的数字">
-                  <i class="fa fa-chevron-left"></i> 剑指offer-03.数组中重复的数字
+                <a href="/2020/02/16/05-09/" rel="next" title="05-09">
+                  <i class="fa fa-chevron-left"></i> 05-09
                 </a>
               
             </div>
@@ -353,10 +395,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/02/14/剑指offer-02-二维数组的查找/" rel="prev" title="">
-                   <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -403,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组的查找"><span class="nav-number">1.</span> <span class="nav-text">二维数组的查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法一"><span class="nav-number">1.2.</span> <span class="nav-text">解法一</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#07-菲波那切数列"><span class="nav-number">1.</span> <span class="nav-text">07-菲波那切数列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法"><span class="nav-number">1.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#08-跳台阶"><span class="nav-number">2.</span> <span class="nav-text">08-跳台阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法-1"><span class="nav-number">2.2.</span> <span class="nav-text">解法</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

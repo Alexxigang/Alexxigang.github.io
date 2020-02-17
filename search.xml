@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[topic-07-08]]></title>
+    <url>%2F2020%2F02%2F17%2Ftopic-07-08%2F</url>
+    <content type="text"><![CDATA[07-菲波那切数列题目描述 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&lt;=39 解法利用传统的递归方法会有重复计算，时间复杂度也会超过限制，在这里利用三个变量进行简单的循环即可时间复杂度：O(n),空间复杂度：O(1) 代码如下： class Solution { public: int Fibonacci(int n) { int res=0; if(n==0||n==1){ return n; } int one=0,two=1,three=0; for(int i=2;i&lt;=n;i++){ three=one+two; one=two; two=three; } return three; } }; 08-跳台阶题目描述 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。 解法思想同上一题：菲波那切数列时间复杂度：O(n),空间复杂度：O(1) 代码如下： class Solution { public: int jumpFloor(int number) { if(number&lt;=0){ return 0; } else if(number &lt;3){ return number; } int one=1,two=2,three=0; for(int i=3;i&lt;=number;i++){ three=one + two; one=two; two=three; } return three; } };]]></content>
+      <categories>
+        <category>剑指offer</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[05-09]]></title>
     <url>%2F2020%2F02%2F16%2F05-09%2F</url>
     <content type="text"><![CDATA[05-替换空格题目描述 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 解法先找到空格数目，然后从后往前依次遍历原字符串，判断是否为空格，若为空格将空格替换为’%20’ 代码如下： 12345678910111213141516171819202122232425class Solution &#123;public: void replaceSpace(char *str,int length) &#123; int i=0; int numSpace=0; while(str[i]!='\0')&#123; if(str[i]==' ')&#123; numSpace++; &#125; i++; &#125; int newLen=i+2*numSpace; for(int j=i;j&gt;=0,newLen&gt;=0;)&#123; if(str[j]==' ')&#123; str[newLen--]='0'; str[newLen--]='2'; str[newLen--]='%'; &#125;else&#123; str[newLen--]=str[j]; &#125; j--; &#125; &#125;&#125;; 用两个栈实现队列题目描述 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 解法 利用栈的先进后出的特点，在实现队列的弹出的方法时，现将stack1的数值弹出到stack2中，然后弹出stack2的第一个元素即可 代码如下：123456789101112131415161718192021222324class Solution&#123;public: void push(int node) &#123; stack1.push(node); &#125; int pop() &#123; if(stack2.empty())&#123; while(stack1.size()&gt;0)&#123; int data=stack1.top(); stack1.pop(); stack2.push(data); &#125; &#125; int popItem=stack2.top(); stack2.pop(); return popItem; &#125;private: stack&lt;int&gt; stack1; stack&lt;int&gt; stack2;&#125;;]]></content>
