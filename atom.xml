@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-24T12:25:35.553Z</updated>
+  <updated>2020-02-25T12:42:42.349Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>topic-26-27</title>
+    <link href="http://yoursite.com/2020/02/25/topic-26-27/"/>
+    <id>http://yoursite.com/2020/02/25/topic-26-27/</id>
+    <published>2020-02-25T12:18:22.000Z</published>
+    <updated>2020-02-25T12:42:42.349Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="26-树的子结构"><a href="#26-树的子结构" class="headerlink" title="26-树的子结构"></a>26-树的子结构</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）</p></blockquote><h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。这里使用递归的方法即可。</p><blockquote><p>代码如下：   </p></blockquote><pre><code class="lang-c++">/*struct TreeNode {    int val;    struct TreeNode *left;    struct TreeNode *right;    TreeNode(int x) :            val(x), left(NULL), right(NULL) {    }};*/class Solution {public:    bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)    {        bool result = false;        if(pRoot1 != NULL &amp;&amp; pRoot2 != NULL){            if(pRoot1-&gt;val == pRoot2-&gt;val){            result = DoesTree1HasTree2(pRoot1, pRoot2);        }            if(!result){                result = HasSubtree(pRoot1-&gt;left, pRoot2);            }            if(!result){                result = HasSubtree(pRoot1-&gt;right, pRoot2);            }        }        return result;    }private:    bool DoesTree1HasTree2(TreeNode* pRoot1, TreeNode* pRoot2){        if(pRoot2 == NULL){            return true;        }        if(pRoot1 == NULL){            return false;        }        if(pRoot1-&gt;val != pRoot2-&gt;val){            return false;        }        return DoesTree1HasTree2(pRoot1-&gt;left, pRoot2-&gt;left) &amp;&amp; DoesTree1HasTree2(pRoot1-&gt;right, pRoot2-&gt;right);    }};</code></pre><h2 id="27-二叉树的镜像"><a href="#27-二叉树的镜像" class="headerlink" title="27-二叉树的镜像"></a>27-二叉树的镜像</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>操作给定的二叉树，将其变换为源二叉树的镜像。</p></blockquote><h3 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h3><p>先交换根节点的两个子结点之后，我们注意到值为10、6的结点的子结点仍然保持不变，因此我们还需要交换这两个结点的左右子结点。做完这两次交换之后，我们已经遍历完所有的非叶结点。此时变换之后的树刚好就是原始树的镜像。</p><blockquote><p>代码如下：   </p></blockquote><pre><code class="lang-c++">/*struct TreeNode {    int val;    struct TreeNode *left;    struct TreeNode *right;    TreeNode(int x) :            val(x), left(NULL), right(NULL) {    }};*/class Solution {public:    void Mirror(TreeNode *pRoot) {        if((pRoot == NULL) || (pRoot-&gt;left == NULL &amp;&amp; pRoot-&gt;right == NULL)){            return;        }        //交换根节点的左右结点        TreeNode *pTemp = pRoot-&gt;left;        pRoot-&gt;left = pRoot-&gt;right;        pRoot-&gt;right = pTemp;        //递归左子树        if(pRoot-&gt;left){            Mirror(pRoot-&gt;left);        }        //递归右子树        if(pRoot-&gt;right){            Mirror(pRoot-&gt;right);        }    }};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;26-树的子结构&quot;&gt;&lt;a href=&quot;#26-树的子结构&quot; class=&quot;headerlink&quot; title=&quot;26-树的子结构&quot;&gt;&lt;/a&gt;26-树的子结构&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+    
+      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="刷题" scheme="http://yoursite.com/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title></title>

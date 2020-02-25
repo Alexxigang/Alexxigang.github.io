@@ -56,19 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="06-从尾到头打印链表题目描述 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。  解法用一个栈从头到尾遍历链表，依次压入栈中，然后利用栈的先进后出的特点，依次弹出放入res数组中时间复杂度：O(n),空间复杂度：O(n)  代码    12345678910111213141516171819202122232425/** * Definition for singly-li">
+  <meta name="description" content="26-树的子结构题目描述 输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）  解法查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。这里使用递归的方法即可。  代码如下：     /* struct TreeNode {     int">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="topic06-07">
-<meta property="og:url" content="http://yoursite.com/2020/02/15/topic06/index.html">
+<meta property="og:title" content="topic-26-27">
+<meta property="og:url" content="http://yoursite.com/2020/02/25/topic-26-27/index.html">
 <meta property="og:site_name" content="Alexxigang">
-<meta property="og:description" content="06-从尾到头打印链表题目描述 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。  解法用一个栈从头到尾遍历链表，依次压入栈中，然后利用栈的先进后出的特点，依次弹出放入res数组中时间复杂度：O(n),空间复杂度：O(n)  代码    12345678910111213141516171819202122232425/** * Definition for singly-li">
+<meta property="og:description" content="26-树的子结构题目描述 输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）  解法查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。这里使用递归的方法即可。  代码如下：     /* struct TreeNode {     int">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-15T03:52:39.120Z">
+<meta property="og:updated_time" content="2020-02-25T12:42:42.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="topic06-07">
-<meta name="twitter:description" content="06-从尾到头打印链表题目描述 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。  解法用一个栈从头到尾遍历链表，依次压入栈中，然后利用栈的先进后出的特点，依次弹出放入res数组中时间复杂度：O(n),空间复杂度：O(n)  代码    12345678910111213141516171819202122232425/** * Definition for singly-li">
-  <link rel="canonical" href="http://yoursite.com/2020/02/15/topic06/">
+<meta name="twitter:title" content="topic-26-27">
+<meta name="twitter:description" content="26-树的子结构题目描述 输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）  解法查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。这里使用递归的方法即可。  代码如下：     /* struct TreeNode {     int">
+  <link rel="canonical" href="http://yoursite.com/2020/02/25/topic-26-27/">
 
 
 <script id="page-configurations">
@@ -82,7 +82,7 @@
   };
 </script>
 
-  <title>topic06-07 | Alexxigang</title>
+  <title>topic-26-27 | Alexxigang</title>
   
 
 
@@ -251,7 +251,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/topic06/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/25/topic-26-27/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alex">
@@ -263,7 +263,7 @@
       <meta itemprop="name" content="Alexxigang">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">topic06-07
+        <h1 class="post-title" itemprop="name headline">topic-26-27
 
           
         </h1>
@@ -279,7 +279,7 @@
                 
               
 
-              <time title="创建时间：2020-02-15 11:36:14 / 修改时间：11:52:39" itemprop="dateCreated datePublished" datetime="2020-02-15T11:36:14+08:00">2020-02-15</time>
+              <time title="创建时间：2020-02-25 20:18:22 / 修改时间：20:42:42" itemprop="dateCreated datePublished" datetime="2020-02-25T20:18:22+08:00">2020-02-25</time>
             </span>
           
             
@@ -311,25 +311,95 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="06-从尾到头打印链表"><a href="#06-从尾到头打印链表" class="headerlink" title="06-从尾到头打印链表"></a>06-从尾到头打印链表</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
+        <h2 id="26-树的子结构"><a href="#26-树的子结构" class="headerlink" title="26-树的子结构"></a>26-树的子结构</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）</p>
 </blockquote>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>用一个栈从头到尾遍历链表，依次压入栈中，然后利用栈的先进后出的特点，依次弹出放入res数组中<br><strong>时间复杂度：O(n),空间复杂度：O(n)</strong></p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。这里使用递归的方法即可。</p>
 <blockquote>
-<p>代码  </p>
+<p>代码如下：   </p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; reversePrint(ListNode* head) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; nodes;</span><br><span class="line">        ListNode* node=head;</span><br><span class="line">        <span class="keyword">while</span>(node!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            nodes.push(node-&gt;val);</span><br><span class="line">            node=node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!nodes.empty())&#123;</span><br><span class="line">            res.push_back(nodes.top());</span><br><span class="line">            nodes.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="07-重建二叉树"><a href="#07-重建二叉树" class="headerlink" title="07-重建二叉树"></a>07-重建二叉树</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。</p>
+<pre><code class="lang-c++">/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};*/
+class Solution {
+public:
+    bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)
+    {
+        bool result = false;
+        if(pRoot1 != NULL &amp;&amp; pRoot2 != NULL){
+            if(pRoot1-&gt;val == pRoot2-&gt;val){
+            result = DoesTree1HasTree2(pRoot1, pRoot2);
+        }
+            if(!result){
+                result = HasSubtree(pRoot1-&gt;left, pRoot2);
+            }
+            if(!result){
+                result = HasSubtree(pRoot1-&gt;right, pRoot2);
+            }
+        }
+        return result;
+    }
+private:
+    bool DoesTree1HasTree2(TreeNode* pRoot1, TreeNode* pRoot2){
+        if(pRoot2 == NULL){
+            return true;
+        }
+        if(pRoot1 == NULL){
+            return false;
+        }
+        if(pRoot1-&gt;val != pRoot2-&gt;val){
+            return false;
+        }
+        return DoesTree1HasTree2(pRoot1-&gt;left, pRoot2-&gt;left) &amp;&amp; DoesTree1HasTree2(pRoot1-&gt;right, pRoot2-&gt;right);
+    }
+};
+</code></pre>
+<h2 id="27-二叉树的镜像"><a href="#27-二叉树的镜像" class="headerlink" title="27-二叉树的镜像"></a>27-二叉树的镜像</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>操作给定的二叉树，将其变换为源二叉树的镜像。</p>
 </blockquote>
-<p>例如，给出</p>
-<pre><code>前序遍历 preorder = [3,9,20,15,7]
-中序遍历 inorder = [9,3,15,20,7]
-</code></pre><h3 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h3><p>利用前序遍历，中序遍历的特点，分别建立preLeft,preRight,inLeft,inRight四个数组，分别保存前序数组除去根节点的左子树节点，前序数组的右子树节点，中序数组的左子树节点，中序数组的右子树节点，然后以前序数组第一个数字为根节点的val，递归生成根节点的左子树，右子树  </p>
+<h3 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h3><p>先交换根节点的两个子结点之后，我们注意到值为10、6的结点的子结点仍然保持不变，因此我们还需要交换这两个结点的左右子结点。做完这两次交换之后，我们已经遍历完所有的非叶结点。此时变换之后的树刚好就是原始树的镜像。</p>
 <blockquote>
-<p>代码  </p>
+<p>代码如下：   </p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preorder.size()==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; preLeft,preRight,inLeft,inRight;</span><br><span class="line">        TreeNode* head=<span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">int</span> root=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;inorder.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(inorder[i]==preorder[<span class="number">0</span>])&#123;</span><br><span class="line">                root=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;root;i++)&#123;</span><br><span class="line">            inLeft.push_back(inorder[i]);</span><br><span class="line">            preLeft.push_back(preorder[i+<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=root+<span class="number">1</span>;i&lt;preorder.size();i++)&#123;</span><br><span class="line">            inRight.push_back(inorder[i]);</span><br><span class="line">            preRight.push_back(preorder[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;left=buildTree(preLeft,inLeft);</span><br><span class="line">        head-&gt;right=buildTree(preRight,inRight);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c++">/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};*/
+class Solution {
+public:
+    void Mirror(TreeNode *pRoot) {
+        if((pRoot == NULL) || (pRoot-&gt;left == NULL &amp;&amp; pRoot-&gt;right == NULL)){
+            return;
+        }
+
+        //交换根节点的左右结点
+        TreeNode *pTemp = pRoot-&gt;left;
+        pRoot-&gt;left = pRoot-&gt;right;
+        pRoot-&gt;right = pTemp;
+
+        //递归左子树
+        if(pRoot-&gt;left){
+            Mirror(pRoot-&gt;left);
+        }
+        //递归右子树
+        if(pRoot-&gt;right){
+            Mirror(pRoot-&gt;right);
+        }
+    }
+};
+</code></pre>
+
     </div>
 
     
@@ -354,7 +424,7 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/02/14/剑指offer-02-二维数组的查找/" rel="next" title="">
+                <a href="/2020/02/24/topic-24-25/" rel="next" title="">
                   <i class="fa fa-chevron-left"></i> 
                 </a>
               
@@ -363,10 +433,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/02/16/05-09/" rel="prev" title="05-09">
-                  05-09 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -413,7 +479,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#06-从尾到头打印链表"><span class="nav-number">1.</span> <span class="nav-text">06-从尾到头打印链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法"><span class="nav-number">1.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#07-重建二叉树"><span class="nav-number">2.</span> <span class="nav-text">07-重建二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法-1"><span class="nav-number">2.2.</span> <span class="nav-text">解法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#26-树的子结构"><span class="nav-number">1.</span> <span class="nav-text">26-树的子结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法"><span class="nav-number">1.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-二叉树的镜像"><span class="nav-number">2.</span> <span class="nav-text">27-二叉树的镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法-1"><span class="nav-number">2.2.</span> <span class="nav-text">解法</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
