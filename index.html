@@ -249,6 +249,92 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/topic-38-39/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alex">
+      <meta itemprop="description" content="主要分享个人学习笔记，个人总结等文章">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alexxigang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/03/02/topic-38-39/" class="post-title-link" itemprop="url">未命名</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-02 20:46:08 / 修改时间：20:46:59" itemprop="dateCreated datePublished" datetime="2020-03-02T20:46:08+08:00">2020-03-02</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>title: topic-38-39<br>date: 2020-03-02 20:46:08<br>tags:</p>
+<ul>
+<li>刷题<br>categories:</li>
+<li>剑指offer</li>
+</ul>
+<hr>
+<h2 id="38、字符串的排列"><a href="#38、字符串的排列" class="headerlink" title="38、字符串的排列"></a>38、字符串的排列</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。<br>输入描述：</p>
+<p>输入一个字符串,长度不超过9(可能有字符重复)，字符只包括大小写字母。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>我们求整个字符串的排列，可以看成两步：首先求所有可能出现在第一个位置的字符，即把第一个字符和后面所有的字符交换。首先固定第一个字符，求后面所有字符的排列。这个时候我们仍把后面的所有字符分为两部分：后面的字符的第一个字符，以及这个字符之后的所有字符。然后把第一个字符逐一和它后面的字符交换。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; Permutation(<span class="built_in">string</span> str) &#123;</span><br><span class="line">        <span class="comment">//判断输入</span></span><br><span class="line">        <span class="keyword">if</span>(str.length() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        PermutationCore(str, <span class="number">0</span>);</span><br><span class="line">        <span class="comment">//对结果进行排序</span></span><br><span class="line">        sort(result.begin(), result.end());</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">PermutationCore</span><span class="params">(<span class="built_in">string</span> str, <span class="keyword">int</span> begin)</span></span>&#123;</span><br><span class="line">        <span class="comment">//递归结束的条件：第一位和最后一位交换完成</span></span><br><span class="line">        <span class="keyword">if</span>(begin == str.length())&#123;</span><br><span class="line">            result.push_back(str);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = begin; i &lt; str.length(); i++)&#123;</span><br><span class="line">            <span class="comment">//如果字符串相同，则不交换</span></span><br><span class="line">            <span class="keyword">if</span>(i != begin &amp;&amp; str[i] == str[begin])&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//位置交换</span></span><br><span class="line">            swap(str[begin], str[i]);</span><br><span class="line">            <span class="comment">//递归调用，前面begin+1的位置不变，后面的字符串全排列</span></span><br><span class="line">            PermutationCore(str, begin + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="39、数组中出现次数超过一半的数字"><a href="#39、数组中出现次数超过一半的数字" class="headerlink" title="39、数组中出现次数超过一半的数字"></a>39、数组中出现次数超过一半的数字</h2><h2 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h2><p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>数组中有一个数字出现的次数超过数组长度的一半，也就是说它出现的次数比其他所有数字出现次数的和还要多。因此我们可以考虑在遍历数组的时候保存两个值：一个是数组的一个数字，一个是次数。当我们遍历到下一个数字的时候，如果下一个数字和我们之前保存的数字相同，则次数加1；如果下一个数字和我们之前保存的数字不同，则次数减1。如果次数为零，我们需要保存下一个数字，并把次数设为1。由于我们要找的数字出现的次数比其他所有数字出现的次数之和还要多，那么要找的数字肯定是最后一次把次数设为1时对应的数字。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">MoreThanHalfNum_Solution</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers.empty())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 遍历每个元素，并记录次数；若与前一个元素相同，则次数加1，否则次数减1</span></span><br><span class="line">        <span class="keyword">int</span> result = numbers[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> times = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; numbers.size(); ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(times == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">// 更新result的值为当前元素，并置次数为1</span></span><br><span class="line">                result = numbers[i];</span><br><span class="line">                times = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(numbers[i] == result)&#123;</span><br><span class="line">                times++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                times--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 判断result是否符合条件，即出现次数大于数组长度的一半</span></span><br><span class="line">        times = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(numbers[i] == result)&#123;</span><br><span class="line">                times++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (times &gt; (numbers.size() &gt;&gt; <span class="number">1</span>)) ? result : <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/01/topic-36-37/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1436,98 +1522,6 @@ public:
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/topic-14-15-16/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alex">
-      <meta itemprop="description" content="主要分享个人学习笔记，个人总结等文章">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alexxigang">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/02/20/topic-14-15-16/" class="post-title-link" itemprop="url">topic-14-15-16</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-02-20 21:32:10 / 修改时间：21:38:46" itemprop="dateCreated datePublished" datetime="2020-02-20T21:32:10+08:00">2020-02-20</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/剑指offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="14-剪绳子"><a href="#14-剪绳子" class="headerlink" title="14-剪绳子"></a>14-剪绳子</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为k[0],k[1],…,k[m]。请问k[0]xk[1]x…xk[m]可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
-</blockquote>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>利用动态规划，需要O(n^2)时间和O(n)空间，也就是利用一个表，储存长度为1~n绳子的最大乘积。</p>
-<blockquote>
-<p>代码如下： </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">cutRope</span><span class="params">(self, number)</span>:</span></span><br><span class="line">     <span class="comment"># write code here</span></span><br><span class="line">     <span class="keyword">if</span> number &lt; <span class="number">2</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">     <span class="keyword">if</span> number == <span class="number">2</span>:<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">     <span class="keyword">if</span> number == <span class="number">3</span>:<span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">     products = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">     <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>, number+<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">         product = <span class="number">0</span></span><br><span class="line">         <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>//<span class="number">2</span>+<span class="number">1</span>,<span class="number">1</span>):</span><br><span class="line">             res = products[j]* products[i-j]</span><br><span class="line">             product = max(res,product)</span><br><span class="line">             products.append(product)</span><br><span class="line">     <span class="keyword">return</span>  products[<span class="number">-1</span>]</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">## 15-二进制中一的个数</span></span><br><span class="line"><span class="comment">### 题目描述  </span></span><br><span class="line">&gt;输入一个整数，输出该数二进制表示中<span class="number">1</span>的个数。其中负数用补码表示。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 解法  </span></span><br><span class="line">如果一个整数不为<span class="number">0</span>，那么这个整数至少有一位是<span class="number">1</span>。如果我们把这个整数减<span class="number">1</span>，那么原来处在整数最右边的<span class="number">1</span>就会变为<span class="number">0</span>，原来在<span class="number">1</span>后面的所有的<span class="number">0</span>都会变成<span class="number">1</span>(如果最右边的<span class="number">1</span>后面还有<span class="number">0</span>的话)。其余所有位将不会受到影响。</span><br><span class="line"></span><br><span class="line">举个例子：一个二进制数<span class="number">1100</span>，从右边数起第三位是处于最右边的一个<span class="number">1</span>。减去<span class="number">1</span>后，第三位变成<span class="number">0</span>，它后面的两位<span class="number">0</span>变成了<span class="number">1</span>，而前面的<span class="number">1</span>保持不变，因此得到的结果是<span class="number">1011.</span>我们发现减<span class="number">1</span>的结果是把最右边的一个<span class="number">1</span>开始的所有位都取反了。这个时候如果我们再把原来的整数和减去<span class="number">1</span>之后的结果做与运算，从原来整数最右边一个<span class="number">1</span>那一位开始所有位都会变成<span class="number">0</span>。如<span class="number">1100</span>&amp;<span class="number">1011</span>=<span class="number">1000.</span>也就是说，把一个整数减去<span class="number">1</span>，再和原整数做与运算，会把该整数最右边一个<span class="number">1</span>变成<span class="number">0.</span>那么一个整数的二进制有多少个<span class="number">1</span>，就可以进行多少次这样的操作。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">&gt; 代码如下：  </span><br><span class="line"></span><br><span class="line">```c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">     int  NumberOf1(int n) &#123;</span><br><span class="line">         int count = <span class="number">0</span>;</span><br><span class="line">         <span class="keyword">while</span>(n)&#123;</span><br><span class="line">             ++count;</span><br><span class="line">             n = (n - <span class="number">1</span>) &amp; n;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> count;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 16-数值的整数次方</span></span><br><span class="line"><span class="comment">### 题目描述  </span></span><br><span class="line">&gt;给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。保证base和exponent不同时为<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 解法  </span></span><br><span class="line">当指数为负数的时候，可以先对指数求绝对值，然后算出次方的结果之后再取倒数。如果底数为<span class="number">0</span>，则直接返回<span class="number">0</span>。此时的次方在数学上是没有意义的。</span><br><span class="line">除此之外，我们要注意：由于计算机表示小数（包括float和double型小数）都有误差，我们不能直接用等号（==）判断两个小数是否相等。如果两个小数的差的绝对值很小，比如小于<span class="number">0.0000001</span>，就可以认为它们相等。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">&gt; 代码如下：  </span><br><span class="line"></span><br><span class="line">```c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">    /*</span><br><span class="line">    由于计算机表示小数（包括float和double型小数）都有误差，我们不能直接用等号</span><br><span class="line">    （==）判断两个小数是否相等。</span><br><span class="line">    如果两个小数的差的绝对值很小，比如小于<span class="number">0.0000001</span>，就可以认为它们相等。</span><br><span class="line">    */</span><br><span class="line">public:</span><br><span class="line">    double Power(double base, int exponent) &#123;</span><br><span class="line">        <span class="keyword">if</span>(equal(base,<span class="number">0.0</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        unsigned int absexponent=<span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(exponent&lt;<span class="number">0.0</span>)&#123;</span><br><span class="line">            absexponent=(unsigned int)(-exponent);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            absexponent=(unsigned int)(exponent);</span><br><span class="line">        &#125;</span><br><span class="line">        double result=PowerWithUnsignedExponent(base,absexponent);</span><br><span class="line">        <span class="keyword">if</span>(exponent&lt;<span class="number">0.0</span>)&#123;</span><br><span class="line">            result=<span class="number">1.0</span>/result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">private:</span><br><span class="line">    bool equal(double num1,double num2)&#123;</span><br><span class="line">        <span class="keyword">if</span>((num1-num2)&gt;<span class="number">-0.0000001</span>&amp;&amp;(num1-num2)&lt;<span class="number">0.0000001</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> true;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> false;</span><br><span class="line">    &#125;</span><br><span class="line">    double PowerWithUnsignedExponent(double base,unsigned int exponent)&#123;</span><br><span class="line">       <span class="keyword">if</span>(exponent==<span class="number">1</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> base;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">if</span>(exponent==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        double result=PowerWithUnsignedExponent(base,exponent&gt;&gt;<span class="number">1</span>);</span><br><span class="line">        result*=result;</span><br><span class="line">        <span class="keyword">if</span>((exponent&amp;<span class="number">0x1</span>)==<span class="number">1</span>)&#123;</span><br><span class="line">            result*=base;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1576,7 +1570,7 @@ public:
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
