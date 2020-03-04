@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-03T13:29:01.657Z</updated>
+  <updated>2020-03-04T12:55:47.272Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>topic-42-43</title>
+    <link href="http://yoursite.com/2020/03/04/topic-42-43/"/>
+    <id>http://yoursite.com/2020/03/04/topic-42-43/</id>
+    <published>2020-03-04T12:41:19.000Z</published>
+    <updated>2020-03-04T12:55:47.272Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="42、连续子数组的最大和"><a href="#42、连续子数组的最大和" class="headerlink" title="42、连续子数组的最大和"></a>42、连续子数组的最大和</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。你会不会被他忽悠住？(子向量的长度至少是1)</p><h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>数组分析：下图是我们计算数组（1，-2，3，10，-4，7，2，-5）中子数组的最大和的过程。通过分析我们发现，累加的子数组和，如果大于零，那么我们继续累加就行；否则，则需要剔除原来的累加和重新开始。</p><h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">FindGreatestSumOfSubArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">array</span>.empty())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 初始化变量，maxSum为最大和，curSum为当前和</span></span><br><span class="line">        <span class="keyword">int</span> maxSum = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> curSum = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">// 遍历所有元素</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in">array</span>.size(); i++)&#123;</span><br><span class="line">            <span class="comment">// 如果当前和小于等于0，说明之前的是负数，则抛弃前面的和，重新计算</span></span><br><span class="line">            <span class="keyword">if</span>(curSum &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">                curSum = <span class="built_in">array</span>[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果没有问题，直接累加</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                curSum += <span class="built_in">array</span>[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 更新最大和</span></span><br><span class="line">            <span class="keyword">if</span>(curSum &gt; maxSum)&#123;</span><br><span class="line">                maxSum = curSum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="43、1～n整数中1出现的次数"><a href="#43、1～n整数中1出现的次数" class="headerlink" title="43、1～n整数中1出现的次数"></a>43、1～n整数中1出现的次数</h2><h3 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h3><p>输入一个整数n，求从1到n这n个整数的十进制表示中1出现的次数。例如输入12，从1到12这些整数中包含1的数字有1，10，11和12，1一共出现了5次。</p><h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>设定整数点（如1、10、100等等）作为位置点i（对应n的各位、十位、百位等等），分别对每个数位上有多少包含1的点进行分析。</p><p>根据设定的整数位置，对n进行分割，分为两部分，高位n/i，低位n%i<br>当i表示百位，且百位对应的数&gt;=2,如n=31456,i=100，则a=314,b=56，此时百位为1的次数有a/10+1=32（最高两位0~31），每一次都包含100个连续的点，即共有(a/10+1)<em>100个点的百位为1<br>当i表示百位，且百位对应的数为1，如n=31156,i=100，则a=311,b=56，此时百位对应的就是1，则共有a/10(最高两位0-30)次是包含100个连续点，当最高两位为31（即a=311），本次只对应局部点00~56，共b+1次，所有点加起来共有（a/10</em>100）+(b+1)，这些点百位对应为1<br>当i表示百位，且百位对应的数为0,如n=31056,i=100，则a=310,b=56，此时百位为1的次数有a/10=31（最高两位0~30）<br>综合以上三种情况，当百位对应0或&gt;=2时，有(a+8)/10次包含所有100个点，还有当百位为1(a%10==1)，需要增加局部点b+1<br>之所以补8，是因为当百位为0，则a/10==(a+8)/10，当百位&gt;=2，补8会产生进位位，效果等同于(a/10+1)</p><h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><p>```cpp<br>class Solution {<br>public:<br>    int NumberOf1Between1AndN_Solution(int n)<br>    {<br>        // 统计次数<br>        int count = 0;<br>        for(int i = 1; i &lt;= n; i <em>= 10){<br>            // 计算高位和低位<br>            int a = n / i, b = n % i;<br>            count += (a + 8) / 10 </em> i + (a % 10 == 1) * (b + 1);<br>        }<br>        return count;<br>    }<br>};</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;42、连续子数组的最大和&quot;&gt;&lt;a href=&quot;#42、连续子数组的最大和&quot; class=&quot;headerlink&quot; title=&quot;42、连续子数组的最大和&quot;&gt;&lt;/a&gt;42、连续子数组的最大和&lt;/h2&gt;&lt;h3 id=&quot;题目：&quot;&gt;&lt;a href=&quot;#题目：&quot; class
+      
+    
+    </summary>
+    
+    
+      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="刷题" scheme="http://yoursite.com/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -515,32 +541,6 @@
       
       
         &lt;h2 id=&quot;二维数组的查找&quot;&gt;&lt;a href=&quot;#二维数组的查找&quot; class=&quot;headerlink&quot; title=&quot;二维数组的查找&quot;&gt;&lt;/a&gt;二维数组的查找&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="刷题" scheme="http://yoursite.com/tags/%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer-03.数组中重复的数字</title>
-    <link href="http://yoursite.com/2020/02/14/%E5%89%91%E6%8C%87offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
-    <id>http://yoursite.com/2020/02/14/%E5%89%91%E6%8C%87offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</id>
-    <published>2020-02-14T02:05:08.000Z</published>
-    <updated>2020-02-14T02:55:45.579Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="找出数组中重复的数字"><a href="#找出数组中重复的数字" class="headerlink" title="找出数组中重复的数字"></a>找出数组中重复的数字</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p></blockquote><h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>首先判断数组长度是否为0或1，若是，则返回-1，然后将数组排序，然后比较数组中前一个数字是否和后一个数字相等，如果相等，则返回该数字<br><strong>时间复杂度 O(nlog(n)),空间复杂度: O(1)</strong></p><blockquote><p>代码  </p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(nums.begin(),nums.end());</span><br><span class="line">        <span class="keyword">int</span> flag=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;nums.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]==flag)&#123;</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">            flag=nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>因为题目的数组的特殊性，所以可以假设该数组的位置i上的数字为i，即索引与该索引位置上的值相等<br>遍历该数组，如果位置i上的数字为i，则指针后移，如果不等，判断nums[i]是否等于nums[nums[i]]，如果相等，则找到第一个重复的数字，如果不等，将两个数字交换位置，这样，nums[i]位置上的值就等于nums[i],然后继续判断比较，知道位置i上的数字为i，然后往后顺移，直到遍历结束或者找到重复的数字<br><strong>时间复杂度：O(n),空间复杂度: O(1)</strong> </p><blockquote><p>代码如下： </p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.size();i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i]!=i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]==nums[nums[i]])&#123;</span><br><span class="line">                    <span class="keyword">return</span> nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                swap(nums[i],nums[nums[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;找出数组中重复的数字&quot;&gt;&lt;a href=&quot;#找出数组中重复的数字&quot; class=&quot;headerlink&quot; title=&quot;找出数组中重复的数字&quot;&gt;&lt;/a&gt;找出数组中重复的数字&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;head
       
     
     </summary>

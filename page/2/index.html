@@ -249,6 +249,187 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/topic-19-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alex">
+      <meta itemprop="description" content="主要分享个人学习笔记，个人总结等文章">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alexxigang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/02/22/topic-19-20/" class="post-title-link" itemprop="url">topic-19-20</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-22 19:46:04 / 修改时间：20:21:32" itemprop="dateCreated datePublished" datetime="2020-02-22T19:46:04+08:00">2020-02-22</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/剑指offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="19-正则表达式匹配"><a href="#19-正则表达式匹配" class="headerlink" title="19-正则表达式匹配"></a>19-正则表达式匹配</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>请实现一个函数用来匹配包括’.’和’<em>‘的正则表达式。模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”ab<em>ac</em>a”匹配，但是与”aa.a”和”ab*a”均不匹配。</p>
+</blockquote>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>分两种情况来看：</p>
+<ul>
+<li><p>模式串的下一个字符不是’*’，也就是上面说的只有字符’.’的情况。<br>如果字符串中的第一个字符和模式串中的第一个字符相匹配，那么字符串的模式串都向后移动一个字符，然后匹配剩余的字符串和模式串。如果字符串中的第一个字符和模式中的第一个字符不相匹配，则直接返回false。</p>
+</li>
+<li><p>模式串的下一个字符是’*’，此时就要复杂一些。<br>因为可能有多种不同的匹配方式。</p>
+<ul>
+<li><p>选择一：无论字符串和模式串当前字符相不相等，我们都将模式串后移两个字符，相当于把模式串中的当前字符和’<em>‘忽略掉，因为’</em>‘可以匹配任意次的字符，所以出现0次也可以。</p>
+</li>
+<li><p>选择二：如果字符串和模式串当前字符相等，则字符串向后移动一个字符。而模式串此时有两个选择：</p>
+<ul>
+<li><p>1、我们可以在模式串向后移动两个字符，继续匹配；</p>
+</li>
+<li><p>2、也可以保持模式串不变，这样相当于用字符’<em>‘继续匹配字符串，也就是模式串中的字符’</em>‘匹配字符串中的字符多个的情况。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>除此之外，还要注意对空指针的处理。</p>
+<blockquote>
+<p>代码如下： </p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">match</span><span class="params">(<span class="keyword">char</span>* str, <span class="keyword">char</span>* pattern)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 指针为空，返回false</span></span><br><span class="line">        <span class="keyword">if</span>(str == <span class="literal">NULL</span> || pattern == <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> matchCore(str, pattern);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">matchCore</span><span class="params">(<span class="keyword">char</span>* str, <span class="keyword">char</span>* pattern)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 字符串和模式串都运行到了结尾，返回true</span></span><br><span class="line">        <span class="keyword">if</span>(*str == <span class="string">'\0'</span> &amp;&amp; *pattern == <span class="string">'\0'</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 字符串没有到结尾，模式串到了，则返回false</span></span><br><span class="line">        <span class="comment">// 模式串没有到结尾，字符串到了，则根据后续判断进行，需要对'*'做处理</span></span><br><span class="line">        <span class="keyword">if</span>((*str != <span class="string">'\0'</span> &amp;&amp; *pattern == <span class="string">'\0'</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果模式串的下一个字符是'*'，则进入状态机的匹配</span></span><br><span class="line">        <span class="keyword">if</span>(*(pattern + <span class="number">1</span>) == <span class="string">'*'</span>)&#123;</span><br><span class="line">            <span class="comment">// 如果字符串和模式串相等，或者模式串是'.'，并且字符串没有到结尾，则继续匹配</span></span><br><span class="line">            <span class="keyword">if</span>(*str == *pattern || (*pattern == <span class="string">'.'</span> &amp;&amp; *str != <span class="string">'\0'</span>))&#123;</span><br><span class="line">                <span class="comment">// 进入下一个状态，就是匹配到了一个</span></span><br><span class="line">                <span class="keyword">return</span> matchCore(str + <span class="number">1</span>, pattern + <span class="number">2</span>) ||</span><br><span class="line">                    <span class="comment">// 保持当前状态，就是继续那这个'*'去匹配</span></span><br><span class="line">                    matchCore(str + <span class="number">1</span>, pattern) ||</span><br><span class="line">                    <span class="comment">// 跳过这个'*'</span></span><br><span class="line">                    matchCore(str, pattern + <span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果字符串和模式串不相等，则跳过当前模式串的字符和'*'，进入新一轮的匹配</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 跳过这个'*'</span></span><br><span class="line">                <span class="keyword">return</span> matchCore(str, pattern + <span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果字符串和模式串相等，或者模式串是'.'，并且字符串没有到结尾，则继续匹配</span></span><br><span class="line">        <span class="keyword">if</span>(*str == *pattern || (*pattern == <span class="string">'.'</span> &amp;&amp; *str != <span class="string">'\0'</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> matchCore(str + <span class="number">1</span>, pattern + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="20-表示数值的字符串"><a href="#20-表示数值的字符串" class="headerlink" title="20-表示数值的字符串"></a>20-表示数值的字符串</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。  </p>
+</blockquote>
+<h3 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h3><p>表示数值的字符串遵循如下模式：</p>
+<pre><code>[sign]integral-digits[.[fractional-digits]][e|E[sign]exponential-digits]
+</code></pre><p>其中，(‘[‘和’]’之间的为可有可无的部分)。</p>
+<p>在数值之前可能有一个表示正负的’+’或者’-‘。接下来是若干个0到9的数位表示数值的整数部分（在某些小数里可能没有数值的整数部分）。如果数值是一个小数，那么在小数后面可能会有若干个0到9的数位表示数值的小数部分。如果数值用科学记数法表示，接下来是一个’e’或者’E’，以及紧跟着的一个整数（可以有正负号）表示指数。</p>
+<p>判断一个字符串是否符合上述模式时，首先看第一个字符是不是正负号。如果是，在字符串上移动一个字符，继续扫描剩余的字符串中0到9的数位。如果是一个小数，则将遇到小数点。另外，如果是用科学记数法表示的数值，在整数或者小数的后面还有可能遇到’e’或者’E’。</p>
+<blockquote>
+<p>代码如下：  </p>
+</blockquote>
+<pre><code class="lang-c++">class Solution {
+public:
+    // 数字的格式可以用A[.[B]][e|EC]或者.B[e|EC]表示，
+    // 其中A和C都是整数（可以有正负号，也可以没有）
+    // 而B是一个无符号整数
+    bool isNumeric(char* string)
+    {
+        // 非法输入处理
+        if(string == NULL || *string == &#39;\0&#39;){
+            return false;
+        }
+        // 正负号判断
+        if(*string == &#39;+&#39; || *string == &#39;-&#39;){
+            ++string;
+        }
+        bool numeric = true;
+        scanDigits(&amp;string);
+        if(*string != &#39;\0&#39;){
+            // 小数判断
+            if(*string == &#39;.&#39;){
+                ++string;
+                scanDigits(&amp;string);
+                if(*string == &#39;e&#39; || *string == &#39;E&#39;){
+                    numeric = isExponential(&amp;string);
+                }
+            }
+            // 整数判断
+            else if(*string == &#39;e&#39; || *string == &#39;E&#39;){
+                numeric = isExponential(&amp;string);
+            }
+            else{
+                numeric = false;
+            }
+        }
+        return numeric &amp;&amp; *string == &#39;\0&#39;;
+    }
+private:
+    // 扫描数字，对于合法数字，直接跳过
+    void scanDigits(char** string){
+        while(**string != &#39;\0&#39; &amp;&amp; **string &gt;= &#39;0&#39; &amp;&amp; **string &lt;= &#39;9&#39;){
+            ++(*string);
+        }
+    }
+    // 用来潘达un科学计数法表示的数值的结尾部分是否合法
+    bool isExponential(char** string){
+        ++(*string);
+        if(**string == &#39;+&#39; || **string == &#39;-&#39;){
+            ++(*string);
+        }
+        if(**string == &#39;\0&#39;){
+            return false;
+        }
+        scanDigits(string);
+        // 判断是否结尾，如果没有结尾，说明还有其他非法字符串
+        return (**string == &#39;\0&#39;) ? true : false;
+    }
+};
+</code></pre>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/topic-17-18/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1181,104 +1362,6 @@ public:
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/剑指offer-03-数组中重复的数字/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alex">
-      <meta itemprop="description" content="主要分享个人学习笔记，个人总结等文章">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alexxigang">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/02/14/剑指offer-03-数组中重复的数字/" class="post-title-link" itemprop="url">剑指offer-03.数组中重复的数字</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-02-14 10:05:08 / 修改时间：10:55:45" itemprop="dateCreated datePublished" datetime="2020-02-14T10:05:08+08:00">2020-02-14</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/剑指offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="找出数组中重复的数字"><a href="#找出数组中重复的数字" class="headerlink" title="找出数组中重复的数字"></a>找出数组中重复的数字</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
-</blockquote>
-<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>首先判断数组长度是否为0或1，若是，则返回-1，然后将数组排序，然后比较数组中前一个数字是否和后一个数字相等，如果相等，则返回该数字<br><strong>时间复杂度 O(nlog(n)),空间复杂度: O(1)</strong></p>
-<blockquote>
-<p>代码  </p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">	        <span class="keyword">if</span>(nums.size()&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">	            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	        &#125;</span><br><span class="line">	        sort(nums.begin(),nums.end());</span><br><span class="line">	        <span class="keyword">int</span> flag=nums[<span class="number">0</span>];</span><br><span class="line">	        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;nums.size();i++)&#123;</span><br><span class="line">	            <span class="keyword">if</span>(nums[i]==flag)&#123;</span><br><span class="line">	                <span class="keyword">return</span> nums[i];</span><br><span class="line">	            &#125;</span><br><span class="line">	            flag=nums[i];</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>因为题目的数组的特殊性，所以可以假设该数组的位置i上的数字为i，即索引与该索引位置上的值相等<br>遍历该数组，如果位置i上的数字为i，则指针后移，如果不等，判断nums[i]是否等于nums[nums[i]]，如果相等，则找到第一个重复的数字，如果不等，将两个数字交换位置，这样，nums[i]位置上的值就等于nums[i],然后继续判断比较，知道位置i上的数字为i，然后往后顺移，直到遍历结束或者找到重复的数字<br><strong>时间复杂度：O(n),空间复杂度: O(1)</strong> </p>
-<blockquote>
-<p>代码如下： </p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.size();i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i]!=i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]==nums[nums[i]])&#123;</span><br><span class="line">                    <span class="keyword">return</span> nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                swap(nums[i],nums[nums[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1327,7 +1410,7 @@ public:
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
